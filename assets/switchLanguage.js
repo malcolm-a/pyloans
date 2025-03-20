@@ -17,7 +17,8 @@ const translations = {
         semiannually: 'Semi-annually',
         amortizationType: 'Amortization Type:',
         constantPayment: 'Constant Payment',
-        constantPrincipal: 'Constant Principal'
+        constantPrincipal: 'Constant Principal',
+        downloadExcel: 'Download as Excel file',
     },
     fr: {
         title: 'Calculateur de prêt',
@@ -37,7 +38,8 @@ const translations = {
         semiannually: 'Semestriellement',
         amortizationType: 'Type d\'amortissement :',
         constantPayment: 'Annuités constantes',
-        constantPrincipal: 'Amortissements constants'
+        constantPrincipal: 'Amortissements constants',
+        downloadExcel: 'Télécharger au format Excel',
     }
 };
 
@@ -85,6 +87,9 @@ function switchLanguage(lang) {
     // Update toggle buttons
     document.querySelector('.toggle-button[data-value="constant-payment"]').textContent = translations[lang].constantPayment;
     document.querySelector('.toggle-button[data-value="constant-principal"]').textContent = translations[lang].constantPrincipal;
+
+    // Update download button
+    document.querySelector('#download-excel').textContent = translations[lang].downloadExcel;
 
     // Update table headers
     const headers = document.querySelectorAll('#loan-table th');
