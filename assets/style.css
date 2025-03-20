@@ -1,11 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+:root {
+    --table-header-bg: #9dd59e;
+    --table-row-odd-bg: #d4eed5;
+    --table-border-color: #ddd;
+    --toggle-bg: #f0f0f0;
+    --white: #fff;
+}
+
+
+
 body {
     font-family: Inter;
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
 }
+
+/* Form */
 
 .form-group {
     margin-bottom: 15px;
@@ -22,9 +34,9 @@ input, select {
     padding: 10px;
     font-size: 12pt;
     box-sizing: border-box;
-    border: 1px solid #ddd;
+    border: 1px solid var(--table-border-color);
     border-radius: 5px;
-    background-color: #fff;
+    background-color: var(--white);
 }
 
 select {
@@ -36,55 +48,10 @@ select {
     background-position: right 5px center;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    border-radius: 5px;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: right;
-    font-size: 12pt;
-}
-th {
-    background-color: #86c888;
-    text-align: center;
-}
-tr:last-child {
-    font-weight: bold;
-    background-color: #86c888 !important;
-}
-
-#loan-body tr:nth-child(odd) {
-    background-color: #d4eed5;
-}
-
-.language-switcher {
-    display: flex;
-    flex-flow: row wrap;
-    
-}
-
-button {
-    border: none;
-    background: none;
-    margin-right: 10px;
-    cursor: pointer;
-}
-
-button span.fi {
-    transform: scale(2.0); /* Increase the size */
-    display: inline-block;
-    border-radius: 2px;
-}
-
 .toggle-container {
     display: flex;
     width: 100%;
-    background-color: #f0f0f0;
+    background-color: var(--toggle-bg);
     border-radius: 5px;
     overflow: hidden;
     margin-top: 5px;
@@ -109,7 +76,7 @@ button span.fi {
 }
 
 .toggle-button.active {
-    background-color: #fff;
+    background-color: var(--white);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     font-weight: 500;
 }
@@ -125,3 +92,68 @@ button span.fi {
 .toggle-button:hover:not(.active) {
     background-color: rgba(255, 255, 255, 0.5);
 }
+
+/* Table */
+
+table {
+    width: 100%;
+    border-collapse: separate; 
+    border-spacing: 0; 
+    margin-top: 20px;
+    border: 1px solid var(--table-border-color);
+    border-radius: 5px;
+    overflow: hidden; 
+}
+
+th, td {
+    border-right: 1px solid var(--table-border-color);
+    border-bottom: 1px solid var(--table-border-color);
+    padding: 8px;
+    text-align: right;
+    font-size: 12pt;
+}
+
+
+th:last-child, td:last-child {
+    border-right: none;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+th {
+    background-color: var(--table-header-bg);
+    text-align: center;
+}
+
+tr:last-child {
+    font-weight: bold;
+    background-color: var(--table-header-bg) !important;
+}
+
+#loan-body tr:nth-child(odd) {
+    background-color: var(--table-row-odd-bg);
+}
+
+/* Language Switcher */
+
+.language-switcher {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 2px;
+}
+
+button {
+    border: none;
+    background: none;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+button span.fi {
+    transform: scale(2.0);
+    display: inline-block;
+    border-radius: 2px;
+}
+
