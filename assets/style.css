@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root {
-    --table-header-bg: #9dd59e;
-    --table-row-odd-bg: #d4eed5;
+    --table-header-bg: #d8d8d8;
+    --table-row-odd-bg: #f2f2f2;
     --table-border-color: #ddd;
     --toggle-bg: #f0f0f0;
     --white: #fff;
