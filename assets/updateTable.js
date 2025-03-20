@@ -37,6 +37,11 @@ inputs.forEach(input => {
       });
   });
 
+  /**
+   * Calculates the loan schedule based on user inputs
+   * 
+   * @returns {void}
+   */
   function calculateLoan() {
       const years = parseInt(document.getElementById('loan-years').value);
       const amount = parseFloat(document.getElementById('loan-amount').value);
@@ -71,6 +76,13 @@ inputs.forEach(input => {
       });
   }
   
+  /**
+   * Updates the loan schedule table with new data
+   * 
+   * @param {Array} schedule the loan schedule data
+   * 
+   * @returns {void}
+   */
   function updateTable(schedule) {
       const tableBody = document.getElementById('loan-body');
       tableBody.innerHTML = '';
@@ -102,7 +114,14 @@ inputs.forEach(input => {
           tableBody.appendChild(tr);
       });
   }
-  
+
+  /**
+   * Formats a number to a string with commas and two decimal places
+   * 
+   * @param {number} num the number to format
+   * 
+   * @returns {string} formatted number
+   */
   function formatNumber(num) {
       if (num === "" || num === undefined) return "";
       return parseFloat(num).toLocaleString('en-US', {
