@@ -5,7 +5,7 @@ A simple loan calculator web app made using Flask.
 ## Contents
 
 * [🚀 Introduction](#-introduction)
-* [🛠️ Installation](#-installation)
+* [🛠️ Installation](#️-installation)
 * [🏞️ Screenshots](#️-screenshots)
 
 
