@@ -1,8 +1,20 @@
 import pandas as pd
 from io import BytesIO
 
-def adjust_rate_and_period(rate, n, period):
+def adjust_rate_and_period(rate: float, n: int, period: str) -> tuple:
+    """Adjusts the interest rate and number of periods based on the payment frequency
+    
+    Args:
+        rate (float): interest rate
+        n (int): number of periods
+        period (str): payment frequency, can be "monthly", "quarterly", "semi-annually", or "annually"
 
+    Raises:
+        ValueError: if the period is not one of the expected values
+
+    Returns:
+        tuple: the adjusted rate and number of periods
+    """
     periods_per_year = {
         "monthly": 12,
         "quarterly": 4,
@@ -22,7 +34,18 @@ def adjust_rate_and_period(rate, n, period):
     return rate, n
 
 
-def loan_constant_payment(n, amount, rate, period):
+def loan_constant_payment(n: int, amount: float, rate: float, period: str) -> list:
+    """Calculates the loan amortization schedule using constant payment method
+
+    Args:
+        n (int): number of periods
+        amount (float): loan amount
+        rate (float): interest rate
+        period (str): payment frequency, can be "monthly", "quarterly", "semi-annually", or "annually"
+
+    Returns:
+        list: amortization schedule
+    """    
     rate, n = adjust_rate_and_period(rate, n, period)
     
     yearly_payment = amount * rate / (1 - (1 + rate) ** -n)
@@ -43,7 +66,19 @@ def loan_constant_payment(n, amount, rate, period):
     return result
 
 
-def loan_constant_principal(n, amount, rate, period):
+def loan_constant_principal(n: int, amount: float, rate: float, period: str) -> list:
+    """Calculates the loan amortization schedule using constant principal method
+
+    Args:
+        n (int): number of periods
+        amount (float): loan amount
+        rate (float): interest rate
+        period (str): payment frequency, can be "monthly", "quarterly", "semi-annually", or "annually"
+
+    Returns:
+        list: amortization schedule
+    """   
+    
     rate, n = adjust_rate_and_period(rate, n, period)
     
     principal_payment = amount / n
@@ -70,7 +105,16 @@ def loan_constant_principal(n, amount, rate, period):
     result.append(["Total", "", total_interests, round(amount, 2), round(total_payment, 2)])
     return result
 
-def to_xlsx(data: list, lang: str="en"):
+def to_xlsx(data: list, lang: str="en") -> BytesIO:
+    """Converts the amortization schedule to an Excel file
+
+    Args:
+        data (list): the amortization schedule data
+        lang (str, optional): the language used for the columns. Defaults to "en".
+
+    Returns:
+        BytesIO: an in-memory Excel file
+    """    
     import pandas as pd
     from io import BytesIO
     
