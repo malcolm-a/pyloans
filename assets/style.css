@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body {
+    font-family: Inter;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    font-size: 12pt;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 5px center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: right;
+    font-size: 12pt;
+}
+th {
+    background-color: #86c888;
+    text-align: center;
+}
+tr:last-child {
+    font-weight: bold;
+    background-color: #86c888 !important;
+}
+
+#loan-body tr:nth-child(odd) {
+    background-color: #d4eed5;
+}
+
+.language-switcher {
+    display: flex;
+    flex-flow: row wrap;
+    
+}
+
+button {
+    border: none;
+    background: none;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+button span.fi {
+    transform: scale(2.0); /* Increase the size */
+    display: inline-block;
+    border-radius: 2px;
+}
+
+.toggle-container {
+    display: flex;
+    width: 100%;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 5px;
+    padding: 3px;
+    box-sizing: border-box;
+}
+
+.toggle-button {
+    flex: 1;
+    padding: 10px;
+    font-size: 12pt;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    color: #333;
+    border-radius: 4px;
+    position: relative;
+    z-index: 1;
+    margin: 0 2px;
+}
+
+.toggle-button.active {
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+}
+
+.toggle-button:first-child {
+    margin-left: 0;
+}
+
+.toggle-button:last-child {
+    margin-right: 0;
+}
+
+.toggle-button:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.5);
+}
