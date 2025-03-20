@@ -157,3 +157,20 @@ button span.fi {
     border-radius: 2px;
 }
 
+/* Download Button */
+
+#download-excel {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12pt;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+#download-excel:hover {
+    background-color: #45a049;
+}
