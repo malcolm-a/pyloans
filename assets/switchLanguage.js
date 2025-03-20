@@ -43,6 +43,13 @@ const translations = {
     }
 };
 
+/**
+ * Sets a cookie with the given name, value, and expiration days
+ * 
+ * @param {String} name the name of the cookie
+ * @param {*} value the value of the cookie
+ * @param {Number} days the number of days until the cookie expires
+ */
 function setCookie(name, value, days) {
     const d = new Date();
     d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
@@ -50,6 +57,12 @@ function setCookie(name, value, days) {
     document.cookie = name + "=" + value + ";" + expires + ";path=/";
 }
 
+/**
+ * Gets the value of a cookie by its name
+ * 
+ * @param {String} name the name of the cookie
+ * @returns {String} the value of the cookie
+ */
 function getCookie(name) {
     const cname = name + "=";
     const decodedCookie = decodeURIComponent(document.cookie);
@@ -66,6 +79,12 @@ function getCookie(name) {
     return "";
 }
 
+/**
+ * Switches the language of the page based on the selected language
+ * 
+ * @param {String} lang the language code ('en' or 'fr')
+ * @return {void}
+ */
 function switchLanguage(lang) {
     setCookie('language', lang, 30);
     document.title = translations[lang].title;
